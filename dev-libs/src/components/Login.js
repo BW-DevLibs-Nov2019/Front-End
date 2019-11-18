@@ -1,5 +1,5 @@
 import React from 'react';
-import {  Form, FormGroup, Label, Input } from 'reactstrap';
+import { Button, Form, FormGroup, Label, Input } from 'reactstrap';
 
 const Login = (props) => {
     return (
@@ -18,13 +18,14 @@ const Login = (props) => {
         <Input type="password" name="password" id="examplePassword" placeholder="Password" />
       </FormGroup>
       {' '}
+      <Button onClick="Submit">Submit</Button>
       
      
       </div>
     </Form>
     
     <div className="Footer">
-        Restaurant Passport @2019
+        
     </div>
     </div>
   );
