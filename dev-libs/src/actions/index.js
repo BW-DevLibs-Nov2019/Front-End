@@ -14,7 +14,7 @@ export const POST_START = "POST_START";
 export const POST_SUCCESS = "POST_SUCCESS";
 export const POST_FAILED = "POST_FAILED";
 
-export const addPost = post => dispatch => {
+export const addDevLib = post => dispatch => {
 	dispatch({ type: POST_START });
 	axiosWithAuth()
 		.post("/createPost", post)

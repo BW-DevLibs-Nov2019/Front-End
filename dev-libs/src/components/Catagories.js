@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import { Link } from 'react-router-dom'
-import { connect, useDispatch } from "react-redux";
+import { connect } from "react-redux";
 
 
 const Background = styled.div `
@@ -15,10 +15,6 @@ text-align: center;
 display: flex;
 flex-direction:column; 
 align-items: center;
-`
-
-const Text = styled.p `
-font-size: 2rem;
 `
 
 const StyledLink = styled(Link)`

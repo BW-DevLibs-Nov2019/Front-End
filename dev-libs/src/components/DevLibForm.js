@@ -1,6 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
-import { addPost } from "../actions";
+import { addDevLib } from "../actions";
 import styled from "styled-components";
 
 const Form = styled.form`
@@ -41,38 +41,6 @@ font-size: 16px;
 resize: none;
 `;
 
-const FormBackground2 =styled.div`
-	display: flex;
-	flex-direction: column;
-	justify-content: flex-start;
-	align-items: center;
-	background: #3a405a;
-	width: 40%;
-	height: 240px;
-	padding: 10px;
-	border-radius: 6px;
-	margin-bottom: 30px;
-`;
-const PostTitle2 = styled.label`
-	font-size: 1.5rem;
-	text-align: center;
-	color: white;
-	font-weight: 600;
-	font-family: "Lato", sans-serif;
-	padding: 10px;
-`;
-const TitleInput2 = styled.textarea`
-width: 90%;
-height: 150px;
-padding: 12px 20px;
-box-sizing: border-box;
-border: 2px solid #ccc;
-border-radius: 4px;
-background-color: #f8f8f8;
-font-size: 16px;
-resize: none;
-`;
-
 const Button = styled.button`
 	font-family: "Lato", sans-serif;
 	font-size: 1rem;
@@ -90,22 +58,27 @@ const Button = styled.button`
 `;
 
 const PostForm = props => {
+
+    var number = (Number(props.match.params.id)-1)
 	const [newLib, setNewLib] = React.useState({
-		title: "",
-		description: "",
+
     });
     
-    console.log(props.devlibs[0].story())
-    console.log(props.devlibs[0])
-    var number = (Number(props.match.params.id)-1)
+    //console.log("new lib",newLib)
 
 	const handleChange = e => {
-		setNewLib({ ...setNewLib, [e.target.name]: e.target.value });
+		setNewLib({ ...newLib, [e.target.name]: e.target.value });
 	};
 
 	const handleSubmit = e => {
 		e.preventDefault();
-		props.addPost(setNewLib, redirect);
+		var result = { 		
+			title: props.devlibs[number].title,
+			blanks: Object.values(newLib),
+			story: props.devlibs[number].story}
+		console.log(result.story())
+		console.log(result)
+        props.addDevLib(result, redirect);
 	};
 
 	const redirect = () => {
@@ -119,10 +92,10 @@ const PostForm = props => {
 			<PostTitle htmlFor="postName">{lib}:</PostTitle>
 			<TitleInput
 				type="text"
-				name={`${lib}`}
+				name={lib}
 				onChange={handleChange}
-				placeholder={lib}
-				value={setNewLib.postName}
+				placeholder={`Please enter a ${lib}`}
+				value={newLib.lib}
 			/>
 			</FormBackground>
             ))}
@@ -139,5 +112,5 @@ const mapStateToProps = state => {
 
 export default connect(
 	mapStateToProps,
-	{ addPost },
+	{ addDevLib },
 )(PostForm);

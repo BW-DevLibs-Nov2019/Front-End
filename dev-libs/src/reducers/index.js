@@ -11,7 +11,7 @@ import {
 } from "../actions";
 
 const initialState = {
-	posts: [],
+	myLibs: [],
 	devlibs: [
         {
             id: "1",

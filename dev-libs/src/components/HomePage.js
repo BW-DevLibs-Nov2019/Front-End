@@ -1,7 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import {Switch, Link, Route } from 'react-router-dom'
-import Categories from "./Catagories";
+import { Link } from 'react-router-dom'
 
 const Background = styled.div `
 background: #d1d5de ;
