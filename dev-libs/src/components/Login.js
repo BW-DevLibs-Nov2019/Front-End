@@ -7,9 +7,9 @@ const Login = (props) => {
  <Form inline>
      <div className="Forms">         
       <FormGroup>
-        <Label for="exampleEmail" hidden>
-        <div className="inputName">Email</div></Label>
-        <Input type="email" name="email" id="exampleEmail" placeholder="Email" />
+        <Label for="userName" hidden>
+        <div className="inputName">Username</div></Label>
+        <Input type="username" name="username" id="username" placeholder="Username" />
       </FormGroup>
       {' '}
       <FormGroup>
