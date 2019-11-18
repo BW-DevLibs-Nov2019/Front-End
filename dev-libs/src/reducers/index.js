@@ -12,6 +12,23 @@ import {
 
 const initialState = {
 	posts: [],
+	devlibs: [
+        {
+            id: "1",
+            title: "Ted Talks",
+            blanks: ["verb", "noun", "adjective", "number"]
+        },
+        {
+            id: "2",
+            title: "The Future",
+            blanks: ["verb", "noun", "adjective", "number"]
+        },
+        {
+            id: "3",
+            title: "Test Lib",
+            blanks: ["verb", "noun", "adjective", "number"]
+        },
+    ],
 	addingPost: false,
 	deletingPost: false,
 	updatingPost: false,

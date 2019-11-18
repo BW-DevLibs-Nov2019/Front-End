@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import { Link } from 'react-router-dom'
+import { connect, useDispatch } from "react-redux";
 
 
 const Background = styled.div `
@@ -40,30 +41,27 @@ border: solid #684943 5px;
 }
 `
 
-export default function Categories() {
-
-    const devlibs = [
-        {
-            id: "1",
-            title: "Ted Talks"
-        },
-        {
-            id: "2",
-            title: "The Future"
-        },
-
-    ]
+const Categories = props => {
 
   return (
     <Background>
     <Main>
         <h2>Pick a Dev Lib</h2>
-        {devlibs.map(lib => (
-        <StyledLink to={`/devlib${lib.id}`}>{lib.title}</StyledLink> 
+        {props.devlibs.map(lib => (
+        <StyledLink to={`/devlib/${lib.id}`}>{lib.title}</StyledLink> 
         ))}
     </Main>
     </Background>
   );
 }
 
+const mapStateToProps = state => {
+	return {
+		devlibs: state.devlibs,
+	};
+};
 
+export default connect(
+	mapStateToProps,
+	{},
+)(Categories);

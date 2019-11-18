@@ -7,6 +7,7 @@ import Login from "./components/Login";
 import LandingPage from "./components/LandingPage";
 import HomePage from "./components/HomePage";
 import Categories from "./components/Catagories";
+import DevLibForm from "./components/DevLibForm";
 import PrivateRoute from "./components/PrivateRoute";
 
 
@@ -19,6 +20,7 @@ function App() {
 			<Route path="/login" component={Login} />
       <Route path="/home" component={HomePage} />
       <Route path="/catagories" component={Categories} />
+      <Route path="/devlib/:id" component={DevLibForm} />
 		</div>
 	);
 }
