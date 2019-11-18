@@ -90,22 +90,22 @@ const Button = styled.button`
 `;
 
 const PostForm = props => {
-	const [newPost, setNewPost] = React.useState({
-		postName: "",
+	const [newLib, setNewLib] = React.useState({
+		title: "",
 		description: "",
     });
     
+    console.log(props.devlibs[0].story())
+    console.log(props.devlibs[0])
     var number = (Number(props.match.params.id)-1)
-    console.log(number)
-    console.log(props.devlibs[number].blanks)
 
 	const handleChange = e => {
-		setNewPost({ ...newPost, [e.target.name]: e.target.value });
+		setNewLib({ ...setNewLib, [e.target.name]: e.target.value });
 	};
 
 	const handleSubmit = e => {
 		e.preventDefault();
-		props.addPost(newPost, redirect);
+		props.addPost(setNewLib, redirect);
 	};
 
 	const redirect = () => {
@@ -116,13 +116,13 @@ const PostForm = props => {
 		<Form onSubmit={handleSubmit}>
             {props.devlibs[number].blanks.map(lib => (
 			<FormBackground>
-			<PostTitle htmlFor="postName">Post Title:</PostTitle>
+			<PostTitle htmlFor="postName">{lib}:</PostTitle>
 			<TitleInput
 				type="text"
-				name="postName"
+				name={`${lib}`}
 				onChange={handleChange}
-				placeholder="Enter Title..."
-				value={newPost.postName}
+				placeholder={lib}
+				value={setNewLib.postName}
 			/>
 			</FormBackground>
             ))}
