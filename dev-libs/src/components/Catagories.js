@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
-import {Switch, Link, Route } from 'react-router-dom'
-import Categories from "./Catagories";
+import { Link } from 'react-router-dom'
+
 
 const Background = styled.div `
 background: #d1d5de ;
@@ -31,7 +31,7 @@ text-align: center;
 text-decoration: none;
 margin: 30px;
 margin-bottom: 0px;
-width: 40%;
+width: auto;
 border-radius: 6px;
 border: solid #684943 5px;
 :hover{
@@ -40,15 +40,30 @@ border: solid #684943 5px;
 }
 `
 
-export default function HomePage() {
+export default function Categories() {
+
+    const devlibs = [
+        {
+            id: "1",
+            title: "Ted Talks"
+        },
+        {
+            id: "2",
+            title: "The Future"
+        },
+
+    ]
+
   return (
     <Background>
     <Main>
-        <StyledLink to="/my-libs">My Dev-Libs</StyledLink>
-        <Text>View your Dev-Libs, edit, or delete them!</Text>
-        <StyledLink to="/catagories">Fill-Out a Dev-Lib</StyledLink> 
-        <Text>Fill out a Dev-Lib and then share it with the world!</Text>
+        <h2>Pick a Dev Lib</h2>
+        {devlibs.map(lib => (
+        <StyledLink to={`/devlib${lib.id}`}>{lib.title}</StyledLink> 
+        ))}
     </Main>
     </Background>
   );
 }
+
+

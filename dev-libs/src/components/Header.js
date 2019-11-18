@@ -8,7 +8,7 @@ const Title = styled.h1`
   justify-content: space-around;
   background: #7e8d85;
   align-items: center;
-  margin-bottom: 0px;
+  margin: 0px;
 `;
 
 const Links =styled.div`
@@ -53,7 +53,7 @@ const logout = () => {
   return (
     <header className="ui centered">
       <Title>
-          <TitleLink to ="/">Dev <Image src={Logo} alt="Logo"></Image> Libs</TitleLink>
+          <TitleLink to ="/home">Dev <Image src={Logo} alt="Logo"></Image> Libs</TitleLink>
           <Links>
           <HeaderLink to="/login">Login</HeaderLink>
           <HeaderLink to="/register">Register</HeaderLink>
