@@ -39,7 +39,7 @@ export const updatePost = (id, changes) => dispatch => {
 			dispatch({ type: UPDATE_SUCCESS, payload: changes });
 		})
 		.catch(err => {
-			dispatch({ type: UPDATE_FAILED, payload: err.response });
+			dispatch({ type: UPDATE_FAILED, payload: changes });
 		});
 };
 

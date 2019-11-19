@@ -52,38 +52,39 @@ const Form = styled.form`
 	display: flex;
 	flex-direction: column;
 	width: 100%;
-	align-items: center;
+	align-items:center;
 `;
-const FormBackground = styled.div`
-	background: #3a405a;
-	width: 30%;
-	height: 40px;
+const FormBackground =styled.div`
+	background: #7e8d85;
+	flex-direction: column;
+	width: auto;
+	height: 60px;
 	display: flex;
 	align-items: center;
 	justify-content: space-around;
 	padding: 10px;
 	border-radius: 6px;
-	margin: 30px;
+	margin: 10px;
 `;
 
 const TitleInput = styled.input`
-	height: 30px;
-	width: 300px;
-	padding: 12px 20px;
-	box-sizing: border-box;
-	border: 2px solid #ccc;
-	border-radius: 4px;
-	background-color: #f8f8f8;
-	font-size: 16px;
-	resize: none;
+height: 30px;
+width: 300px;
+padding: 12px 20px;
+box-sizing: border-box;
+border: 2px solid #ccc;
+border-radius: 4px;
+background-color: #f8f8f8;
+font-size: 16px;
+resize: none;
 `;
 
 const Button2 = styled.button`
 	font-family: "Lato", sans-serif;
 	font-size: 1rem;
 	font-weight: 800;
-	background-color: #de6e4b;
-	color: #3a405a;
+	background-color: #684943;
+	color: #d1d5de;
 	text-align: center;
 	text-decoration: none;
 	margin: 10px;
@@ -95,6 +96,7 @@ const Button2 = styled.button`
 `;
 
 function PostCard(props) {
+
     console.log(props)
 	let cardRef = useRef(null);
 	const [animation2, setAnimation2] = useState(null);
@@ -125,10 +127,10 @@ function PostCard(props) {
 	const handleSubmit = e => {
         e.preventDefault();
         var result = { 	
-            id: Date.now(), 			
+            id: Math.random().toString(36).substr(2, 9), 			
 			title: props.title,
 			blanks: Object.values(updatedLib),
-			story: props.story}
+            story: props.story} 
 		props.updatePost(props.id, result);
 		setIsEditing(false);
 	};
@@ -156,7 +158,7 @@ function PostCard(props) {
 					/>
 				</FormBackground>
                 ))}
-				<Button2 type="submit">Update Post</Button2>
+				<Button2 type="submit">Update Dev-Lib</Button2>
 			</Form>
 		);
 	} else {
@@ -166,6 +168,7 @@ function PostCard(props) {
 				<Paragraph>{props.story()}</Paragraph>
 				<Button onClick={() =>test(props)}>Delete</Button>
 				<Button onClick={() => setIsEditing(true)}>Edit</Button>
+                <Button onClick={() => window.location.href = `https://twitter.com/intent/tweet?text=${props.story()}`}>Tweet</Button>
 			</Card>
 		);
 	}
@@ -175,3 +178,6 @@ export default connect(
 	null,
 	{ deletePost, updatePost },
 )(PostCard);
+
+
+//<a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-text="yes" data-hashtags="dev-libs" data-lang="en" data-show-count="false">Tweet</a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
