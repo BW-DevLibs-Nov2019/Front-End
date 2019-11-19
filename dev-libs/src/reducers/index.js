@@ -37,9 +37,11 @@ const initialState = {
         },
         {
             id: "3",
-            title: "Test Lib",
-            blanks: ["verb", "noun", "adjective", "number"]
-        },
+            title: "Star Wars",
+			blanks: ["name", "adjective", "verb", "verb ending in 'ing", "verb ending in 'ing 2", "scary noun"],
+			story: function() { return `Did you ever hear the tragedy of Darth ${this.blanks[0]} the ${this.blanks[1]}? I thought not. It's not a story the Jedi would tell you. It's a Sith legend. Darth 
+			${this.blanks[0]} was a Dark Lord of the Sith, so powerful and so wise he could ${this.blanks[2]} to create life... He had such a knowledge of the dark side that he could even keep the ones he cared about from ${this.blanks[3]}. The dark side of the Force is a pathway to many abilities some consider to be unnatural. He became so powerful... the only thing he was afraid of was ${this.blanks[4]}, which eventually, of course, he did. Unfortunately, he taught his apprentice everything he knew, then his apprentice killed him in his sleep. Ironic, he could save others from ${this.blanks[5]}, but not himself.`}
+        }
     ],
 	addingPost: false,
 	deletingPost: false,
@@ -72,6 +74,7 @@ export const reducer = (state = initialState, action) => {
 				...state,
 				myLibs: [...state.myLibs, action.payload],
 				error: action.payload,
+				addingPost: false,
 			};
 		case UPDATING_START:
 			return {
