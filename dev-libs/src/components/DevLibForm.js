@@ -78,7 +78,8 @@ const PostForm = props => {
 			story: props.devlibs[number].story}
 		console.log(result.story())
 		console.log(result)
-        props.addDevLib(result, redirect);
+		props.addDevLib(result);
+		redirect();
 	};
 
 	const redirect = () => {

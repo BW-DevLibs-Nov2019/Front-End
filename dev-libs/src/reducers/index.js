@@ -74,6 +74,7 @@ export const reducer = (state = initialState, action) => {
 				...state,
 				myLibs: [...state.myLibs, action.payload],
 				error: action.payload,
+				addingPost: false,
 			};
 		case UPDATING_START:
 			return {
