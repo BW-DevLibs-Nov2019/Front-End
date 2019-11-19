@@ -25,7 +25,10 @@ const Register = (props) => {
         </FormGroup>
         {' '}
         <Button onClick="Submit">Submit</Button>
-        
+        <p>Already a member?</p>
+      <Link to ="/">
+        <Button onClick="Click Here">Click Here</Button>
+      </Link>
         </div>
       </Form>
       

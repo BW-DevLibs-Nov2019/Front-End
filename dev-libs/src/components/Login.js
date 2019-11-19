@@ -5,6 +5,9 @@ const Login = (props) => {
     return (
         <div>
  <Form inline>
+ <div className="header">
+                <h1>Welcome Back!</h1>
+                </div>
      <div className="Forms">         
       <FormGroup>
         <Label for="userName" hidden>
