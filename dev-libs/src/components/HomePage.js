@@ -28,7 +28,7 @@ color: white;
 padding: 25px 50px;
 text-align: center;
 text-decoration: none;
-margin: 30px;
+margin: 30px; 
 margin-bottom: 0px;
 width: 40%;
 border-radius: 6px;

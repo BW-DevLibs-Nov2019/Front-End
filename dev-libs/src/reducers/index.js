@@ -13,11 +13,13 @@ import {
 const initialState = {
 	myLibs: [        
 	{
+		id: Math.random().toString(36).substr(2, 9),
 		title: "Ted Talks",
 		blanks: ["silly", "billy", "ahhh", "4"],
 		story: function() { return `I once ${this.blanks[0]}, and then i ${this.blanks[1]}, so that I could ${this.blanks[2]}, and then ${this.blanks[3]}!`}
 	},
 	{
+		id: Math.random().toString(36).substr(2, 9),
 		title: "The Future",
 		blanks: ["sad", "Charles", "running", "19"],
 		story: function() { return `There ${this.blanks[0]}, and then i ${this.blanks[1]}, so that I could ${this.blanks[2]}, and then ${this.blanks[3]}!`}
