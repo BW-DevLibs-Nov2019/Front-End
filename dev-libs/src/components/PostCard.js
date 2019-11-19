@@ -7,8 +7,8 @@ import {TimelineMax, Back} from "gsap";
 
 const Card = styled.div`
 	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-	background: #f9dec9;
-	border: 5px solid #3a405a;
+	background: #b3bfb8 ;
+	border: 5px solid #684943;
 	transition: 0.3s;
 	width: 40%;
 	padding: 10px 20px 10px 20px;
@@ -35,16 +35,16 @@ const Button = styled.button`
 	font-family: "Lato", sans-serif;
 	font-size: 1rem;
 	font-weight: 800;
-	background-color: #3a405a;
-	color: #de6e4b;
+	background-color: #7e8d85;
+	color: white;
 	padding: 2px 20px;
 	text-align: center;
 	text-decoration: none;
 	margin: 10px;
 	border-radius: 6px;
 	:hover {
-		background-color: #de6e4b;
-		color: #3a405a;
+		background-color: #684943;
+		color: #b3bfb8;
 	}
 `;
 
@@ -65,50 +65,10 @@ const FormBackground = styled.div`
 	border-radius: 6px;
 	margin: 30px;
 `;
-const PostTitle = styled.label`
-	font-size: 1.5rem;
-	text-align: center;
-	color: white;
-	font-weight: 600;
-	font-family: "Lato", sans-serif;
-	padding-right: 20px;
-	width: auto;
-`;
+
 const TitleInput = styled.input`
 	height: 30px;
 	width: 300px;
-	padding: 12px 20px;
-	box-sizing: border-box;
-	border: 2px solid #ccc;
-	border-radius: 4px;
-	background-color: #f8f8f8;
-	font-size: 16px;
-	resize: none;
-`;
-
-const FormBackground2 = styled.div`
-	display: flex;
-	flex-direction: column;
-	justify-content: flex-start;
-	align-items: center;
-	background: #3a405a;
-	width: 40%;
-	height: 240px;
-	padding: 10px;
-	border-radius: 6px;
-	margin-bottom: 30px;
-`;
-const PostTitle2 = styled.label`
-	font-size: 1.5rem;
-	text-align: center;
-	color: white;
-	font-weight: 600;
-	font-family: "Lato", sans-serif;
-	padding: 10px;
-`;
-const TitleInput2 = styled.textarea`
-	width: 90%;
-	height: 150px;
 	padding: 12px 20px;
 	box-sizing: border-box;
 	border: 2px solid #ccc;
