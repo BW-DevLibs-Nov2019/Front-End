@@ -22,7 +22,7 @@ export const addDevLib = post => dispatch => {
 			dispatch({ type: POST_SUCCESS, payload: post });
 		})
 		.catch(err => {
-			dispatch({ type: POST_FAILED, payload: err.response });
+			dispatch({ type: POST_FAILED, payload: post });
 		});
 };
 

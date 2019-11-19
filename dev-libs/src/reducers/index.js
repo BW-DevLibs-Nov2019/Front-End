@@ -11,7 +11,18 @@ import {
 } from "../actions";
 
 const initialState = {
-	myLibs: [],
+	myLibs: [        
+	{
+		title: "Ted Talks",
+		blanks: ["silly", "billy", "ahhh", "4"],
+		story: function() { return `I once ${this.blanks[0]}, and then i ${this.blanks[1]}, so that I could ${this.blanks[2]}, and then ${this.blanks[3]}!`}
+	},
+	{
+		title: "The Future",
+		blanks: ["sad", "Charles", "running", "19"],
+		story: function() { return `There ${this.blanks[0]}, and then i ${this.blanks[1]}, so that I could ${this.blanks[2]}, and then ${this.blanks[3]}!`}
+	}
+],
 	devlibs: [
         {
             id: "1",
@@ -53,12 +64,13 @@ export const reducer = (state = initialState, action) => {
 		case POST_SUCCESS:
 			return {
 				...state,
-				posts: [...state.posts, action.payload],
+				myLibs: [...state.myLibs, action.payload],
 				addingPost: false,
 			};
 		case POST_FAILED:
 			return {
 				...state,
+				myLibs: [...state.myLibs, action.payload],
 				error: action.payload,
 			};
 		case UPDATING_START:
