@@ -1,7 +1,7 @@
 [build]
   command = "npm run build"
   publish="dev-libs/build"
-  base = "dev-libs"
+  base = "dev-libs/"
 
 [[redirects]]
   from = "/*"
