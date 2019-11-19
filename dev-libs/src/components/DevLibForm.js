@@ -82,7 +82,7 @@ const PostForm = props => {
 	};
 
 	const redirect = () => {
-		props.history.push("/top-posts");
+		props.history.push("/my-libs");
 	};
 
 	return (
