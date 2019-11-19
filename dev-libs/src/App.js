@@ -5,7 +5,11 @@ import Header from "./components/Header";
 import Register from "./components/Register";
 import Login from "./components/Login";
 import LandingPage from "./components/LandingPage";
+import HomePage from "./components/HomePage";
+import Categories from "./components/Catagories";
+import DevLibForm from "./components/DevLibForm";
 import PrivateRoute from "./components/PrivateRoute";
+
 
 function App() {
 	return (
@@ -14,6 +18,9 @@ function App() {
 			<Route exact path="/" component={LandingPage} />
 			<Route path="/register" component={Register} />
 			<Route path="/login" component={Login} />
+      <Route path="/home" component={HomePage} />
+      <Route path="/catagories" component={Categories} />
+      <Route path="/devlib/:id" component={DevLibForm} />
 		</div>
 	);
 }

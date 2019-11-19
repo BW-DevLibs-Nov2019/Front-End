@@ -11,7 +11,25 @@ import {
 } from "../actions";
 
 const initialState = {
-	posts: [],
+	myLibs: [],
+	devlibs: [
+        {
+            id: "1",
+            title: "Ted Talks",
+			blanks: ["verb", "noun", "adjective", "number"],
+			story: function() { return `I once ${this.blanks[0]}, and then i ${this.blanks[1]}, so that I could ${this.blanks[2]}, and then ${this.blanks[3]}!`}
+        },
+        {
+            id: "2",
+            title: "The Future",
+            blanks: ["verb", "noun", "adjective"]
+        },
+        {
+            id: "3",
+            title: "Test Lib",
+            blanks: ["verb", "noun", "adjective", "number"]
+        },
+    ],
 	addingPost: false,
 	deletingPost: false,
 	updatingPost: false,
