@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import { connect } from "react-redux";
 import styled from "styled-components";
+import PostCard from "./PostCard";
 
 const Main = styled.div`
 	display: flex;
@@ -20,8 +21,7 @@ console.log(props.myPosts.myLibs)
 			<Main>
                 {props.myPosts.myLibs.map(lib => (
                     <div>
-                    <h1>{lib.title}</h1>
-                    <p>{lib.story()}</p>
+					<PostCard id={lib.id} title={lib.title} story={lib.story} blanks={lib.blanks} />	
                     </div>
                 ))}
 			</Main>

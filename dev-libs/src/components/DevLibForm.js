@@ -10,15 +10,16 @@ const Form = styled.form`
 	align-items:center;
 `;
 const FormBackground =styled.div`
-	background: #3a405a;
+	background: #7e8d85;
+	flex-direction: column;
 	width: 30%;
-	height: 40px;
+	height: 60px;
 	display: flex;
 	align-items: center;
 	justify-content: space-around;
 	padding: 10px;
 	border-radius: 6px;
-	margin: 30px;
+	margin: 10px;
 `;
 const PostTitle = styled.label`
 	font-size: 1.5rem;
@@ -45,8 +46,8 @@ const Button = styled.button`
 	font-family: "Lato", sans-serif;
 	font-size: 1rem;
 	font-weight: 800;
-	background-color: #de6e4b;
-	color: #3a405a;
+	background-color: #684943;
+	color: #d1d5de;
 	text-align: center;
 	text-decoration: none;
 	margin: 10px;
@@ -72,7 +73,8 @@ const PostForm = props => {
 
 	const handleSubmit = e => {
 		e.preventDefault();
-		var result = { 		
+		var result = {
+			id: Date.now(), 		
 			title: props.devlibs[number].title,
 			blanks: Object.values(newLib),
 			story: props.devlibs[number].story}
@@ -100,7 +102,7 @@ const PostForm = props => {
 			/>
 			</FormBackground>
             ))}
-			<Button type="submit">Add Post</Button>
+			<Button type="submit">Create Dev-Lib</Button>
 		</Form>
 	);
 };
