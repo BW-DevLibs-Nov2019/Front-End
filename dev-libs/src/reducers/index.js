@@ -92,7 +92,9 @@ export const reducer = (state = initialState, action) => {
 		case UPDATE_FAILED:
 			return {
 				...state,
+				myLibs: [...state.myLibs, action.payload],
 				error: action.payload,
+				updatingPost: false
 			};
 		case DELETE_START:
 			return {
