@@ -1,6 +1,16 @@
 import React from "react";
 import styled from "styled-components";
 import { Link } from 'react-router-dom'
+import Footer from "./Footer";
+
+
+const Footer2 = styled.div`
+position:absolute;
+left:0;
+bottom:0;
+right:0;
+`;
+
 
 const Main = styled.div `
 text-align: center;
@@ -39,6 +49,10 @@ export default function LandingPage() {
         <StyledLink to="/login">Login</StyledLink>
         <StyledLink to="/register">Register</StyledLink>
     </Main>
+    <Footer2>
+      <Footer />
+      </Footer2>
     </Background>
+    
   );
 }

@@ -12,3 +12,18 @@ export const axiosWithAuth = () => {
 };
 
 export default axiosWithAuth;
+
+
+
+// function axiosLogin() {
+//     const clientId = 'your client id';
+//     const clientSecret = 'your client secret';
+
+//     return axios.create({
+//         baseURL: 'your base backend url',
+//         headers: {
+//             'Authorization': `Basic ${btoa(`${clientId}:${clientSecret}`)}`,
+//             'Content-Type': 'application/x-www-form-urlencoded'
+//         }
+//     })
+// }
