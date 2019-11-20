@@ -34,8 +34,9 @@ const initialState = {
         },
         {
             id: "2",
-            title: "The Future",
-            blanks: ["verb", "noun", "adjective"]
+            title: "BaseBall",
+			blanks: ["verb", "verb ending in ing", "noun", "occupation", "number", "location", "verb 2", "adjective", "noun (plural)", "noun2"],
+			story: function() { return `${this.blanks[0]} ball is a very exciting sport. Whether you are ${this.blanks[1]} the ball with a ${this.blanks[2]}, or you are the ${this.blanks[3]} and striking out ${this.blanks[4]} batters in a row, youll be having fun. You can also be the catcher, standing at ${this.blanks[5]} plate, ready to ${this.blanks[6]} the next person as he tries to make it ${this.blanks[5]}. But the best part of it is when someone hits a ${this.blanks[7]} slam when all the ${this.blanks[8]} are loaded during the last ${this.blanks[9]} to win the game.`}
         },
         {
             id: "3",
