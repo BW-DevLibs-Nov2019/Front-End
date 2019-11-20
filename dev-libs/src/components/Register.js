@@ -1,7 +1,7 @@
 import React from 'react';
 import { Button, Form, FormGroup, Label, Input } from 'reactstrap';
 import {Link} from "react-router-dom"
-
+import axios from 'axios'
 
 const Register = (props) => {
     return (
