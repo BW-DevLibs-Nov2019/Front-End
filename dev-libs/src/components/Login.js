@@ -1,7 +1,45 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Button, Form, FormGroup, Label, Input } from 'reactstrap';
-import axios from 'axios'
-const Login = (props) => {
+import {Link} from "react-router-dom"
+import { axiosWithAuth } from "../utils/axiosWithAuth";
+import Footer from "./Footer";
+import styled from "styled-components";
+
+const Error = styled.p`
+color: red
+`;
+
+const Footer2 = styled.div`
+position:absolute;
+left:0;
+bottom:0;
+right:0;
+`;
+
+
+const Login = () => {
+
+const [users, setUsers] = useState({
+  username: "",
+  primaryemail: "",
+  password: ""
+});
+const [error, setError] = useState(false);
+
+const handleChange = event => {
+  event.preventDefault();
+  setUsers({...users, [event.target.name]:event.target.value })
+  setError(false)
+}
+
+const submitUser = user => {
+  console.log(user);
+  axiosWithAuth()
+    .post('/createnewuser', users)
+    .then(res => console.log(res))
+    .catch(err => (setError(true), console.log(err)))
+};
+
     return (
         <div>
  <Form inline>
@@ -27,9 +65,9 @@ const Login = (props) => {
       </div>
     </Form>
     
-    <div className="Footer">
-        
-    </div>
+    <Footer2>
+      <Footer />
+      </Footer2>
     </div>
   );
 }
