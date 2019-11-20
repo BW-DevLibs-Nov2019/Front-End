@@ -1,9 +1,11 @@
 import React from 'react';
 import { Button, Form, FormGroup, Label, Input } from 'reactstrap';
 import {Link} from "react-router-dom"
+import { axiosWithAuth } from "../utils/axiosWithAuth";
 
 
 const Register = (props) => {
+
     return (
         <div className="Register">
       <Form inline>
