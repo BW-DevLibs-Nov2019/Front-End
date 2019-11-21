@@ -1,10 +1,8 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { Button, Form, FormGroup, Label, Input } from 'reactstrap';
-import {Link} from "react-router-dom"
 import { axiosWithAuth } from "../utils/axiosWithAuth";
 import Footer from "./Footer";
 import styled from "styled-components";
-import { tsPropertySignature } from '@babel/types';
 
 const Error = styled.p`
 color: red
@@ -33,7 +31,6 @@ const handleChange = event => {
 }
 
 const handleSubmit = user => {
-  console.log(user);
   axiosWithAuth()
   .post('/login', `grant_type=password&username=${user.username}&password=${user.password}`, {
     headers: {
@@ -42,18 +39,20 @@ const handleSubmit = user => {
     }
   })
   .then(res => {
-    console.log(res)
     localStorage.setItem('token', res.data.access_token);
+    localStorage.setItem('username', user.username);
     props.history.push('/home')
+    window.location.reload();
   })
-  .catch(err => console.log(err.response));
+  .catch(err => (setError(true)));
 };
 
     return (
         <div>
  <Form inline>
  <div className="header">
-                <h1>Welcome Back!</h1>
+                <h1> Log In </h1>
+                <h2>Welcome Back!</h2>
                 </div>
      <div className="Forms">         
       <FormGroup>
@@ -69,7 +68,12 @@ const handleSubmit = user => {
       </FormGroup>
      
       <Button onClick= {() => handleSubmit(users)}>Submit</Button>
-      
+      <div>
+      { error
+        ? <Error>Failed to Login</Error>
+        : <></>
+      }
+    </div>
      
       </div>
     </Form>

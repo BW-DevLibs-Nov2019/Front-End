@@ -43,8 +43,8 @@ const Categories = props => {
     <Background>
     <Main>
         <h2>Pick a Dev Lib</h2>
-        {props.devlibs.map(lib => (
-        <StyledLink to={`/devlib/${lib.id}`}>{lib.title}</StyledLink> 
+        {props.devlibs.map((lib, index) => (
+        <StyledLink to={`/devlib/${lib.id}`} key={index}>{lib.title}</StyledLink> 
         ))}
     </Main>
     </Background>

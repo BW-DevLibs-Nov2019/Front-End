@@ -72,15 +72,27 @@ const PostForm = props => {
 	};
 
 	const handleSubmit = e => {
+
 		e.preventDefault();
-		var result = {
-			id: Date.now(), 		
-			title: props.devlibs[number].title,
-			blanks: Object.values(newLib),
-			story: props.devlibs[number].story}
-		console.log(result.story())
+
+		var result = {		
+			devlibtitle: props.devlibs[number].title,
+			answerstrings: Object.values(newLib),
+			story: props.devlibs[number].story
+		}
+
+
 		console.log(result)
-		props.addDevLib(result);
+		var finalparagraph = result.story();
+
+		var result2 = {		
+			devlibtitle: props.devlibs[number].title,
+			answerstrings: Object.values(newLib),
+			paragraph: finalparagraph,
+			story: "story"
+		}
+		console.log(result2)
+		props.addDevLib(result2);
 		redirect();
 	};
 
@@ -90,8 +102,8 @@ const PostForm = props => {
 
 	return (
 		<Form onSubmit={handleSubmit}>
-            {props.devlibs[number].blanks.map(lib => (
-			<FormBackground>
+            {props.devlibs[number].answerstrings.map((lib, index) => (
+			<FormBackground key={index}>
 			<PostTitle htmlFor="postName">{lib}:</PostTitle>
 			<TitleInput
 				type="text"

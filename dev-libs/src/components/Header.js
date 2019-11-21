@@ -44,16 +44,43 @@ display: inline-block;
 }
 `
 
+const Logout = styled.p `
+color: #353238;
+padding: 14px 25px;
+margin-left: 30px;
+text-align: center;
+text-decoration: none;
+display: inline-block;
+:hover{
+}
+`
+
 export default function Header() {
 
 const logout = () => {
     localStorage.removeItem("token");
+    localStorage.removeItem("username");
+    window.location.reload();
 }
 
+if (localStorage.token) {
   return (
     <header className="ui centered">
       <Title>
           <TitleLink to ="/home">Dev <Image src={Logo} alt="Logo"></Image> Libs</TitleLink>
+          <Links>
+          <HeaderLink to="/home">Home</HeaderLink>
+          <Logout onClick={logout}>Log Out</Logout>
+          </Links>
+      </Title>
+      <Bar />
+    </header>
+  );
+} else {
+  return (
+    <header className="ui centered">
+      <Title>
+          <TitleLink to ="/">Dev <Image src={Logo} alt="Logo"></Image> Libs</TitleLink>
           <Links>
           <HeaderLink to="/login">Login</HeaderLink>
           <HeaderLink to="/register">Register</HeaderLink>
@@ -62,4 +89,5 @@ const logout = () => {
       <Bar />
     </header>
   );
+}
 }

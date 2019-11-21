@@ -14,15 +14,15 @@ import PrivateRoute from "./components/PrivateRoute";
 
 function App() {
 	return (
-		<div className="App">
+		<div>
 			<Header />
 			<Route exact path="/" component={LandingPage} />
 			<Route path="/register" component={Register} />
 			<Route path="/login" component={Login} />
-      <Route path="/home" component={HomePage} />
-      <Route path="/catagories" component={Categories} />
-      <Route path="/devlib/:id" component={DevLibForm} />
-      <Route path="/my-libs" component={MyLibs} />
+      <PrivateRoute path="/home" component={HomePage} />
+      <PrivateRoute path="/catagories" component={Categories} />
+      <PrivateRoute path="/devlib/:id" component={DevLibForm} />
+      <PrivateRoute path="/my-libs" component={MyLibs} />
 		</div>
 	);
 }

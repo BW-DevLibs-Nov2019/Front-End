@@ -114,32 +114,26 @@ function PostCard(props) {
 		  );
 	  },[tl]);
 
-	  var teststuff = {
-		  answerstrings: {
-			  noun: "aaa",
-			  noun2: "ccc",
-			  verb: "bbb",
-		  }
-	  }
-
-	  console.log("test", teststuff.answerstrings.noun)
-
 	const deletePost = id => {
 		props.deletePost(id);
 	};
 
-	const [updatedLib, setUpdatedLib] = React.useState({});
+	const [updatedLib, setUpdatedLib] = React.useState({
+		devlibtitle: props.devlibtitle,
+		paragraph: props.paragraph,
+	});
 
 	const [isEditing, setIsEditing] = useState(false);
-
 	const handleSubmit = e => {
         e.preventDefault();
         var result = { 	
-            id: props.id, 			
-			title: props.title,
-			blanks: Object.values(updatedLib),
-            story: props.story} 
-		props.updatePost(props.id, result);
+            devlibid: props.devlibid, 			
+			devlibtitle: updatedLib.devlibtitle,
+			answerstrings: Object.values(updatedLib),
+			paragraph: updatedLib.paragraph
+		} 
+			
+		props.updatePost(props.devlibid, result);
 		setIsEditing(false);
 	};
 
@@ -161,34 +155,37 @@ function PostCard(props) {
 			},'s+=.75'),
 			);
 	animation2.play()	
-	setTimeout(function() { deletePost(props.id) }, 2000);
+	setTimeout(function() { deletePost(props.devlibid) }, 2000);
 	}
 
 	if (isEditing) {
 		return (
 			<Form onSubmit={handleSubmit}>
-                {props.blanks.map(lib => (
 				<FormBackground>
+				<TitleInput
+						type="text"
+						name="devlibtitle"
+						onChange={handleChange}
+						value={updatedLib.devlibtitle}
+					/>
 					<TitleInput
 						type="text"
-						name={lib}
+						name="paragraph"
 						onChange={handleChange}
-						placeholder={`${lib}`}
-						value={updatedLib.lib}
+						value={updatedLib.paragraph}
 					/>
 				</FormBackground>
-                ))}
 				<Button2 type="submit">Update Dev-Lib</Button2>
 			</Form>
 		);
 	} else {
 		return (
 			<Card ref={element => {cardRef = element;}}>
-				<Title>{props.title}</Title>
-				<Paragraph>{props.story()}</Paragraph>
+				<Title>{props.devlibtitle}</Title>
+				<Paragraph>{props.paragraph}</Paragraph>
 				<Button onClick={() =>test(props)}>Delete</Button>
 				<Button onClick={() => setIsEditing(true)}>Edit</Button>
-                <Button onClick={() => window.location.href = `https://twitter.com/intent/tweet?text=${props.story()}`}>Tweet</Button>
+                <Button onClick={() => window.location.href = `https://twitter.com/intent/tweet?text=${props.paragraph}`}>Tweet</Button>
 			</Card>
 		);
 	}
