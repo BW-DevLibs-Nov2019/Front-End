@@ -55,16 +55,16 @@ const Form = styled.form`
 	align-items:center;
 `;
 const FormBackground =styled.div`
-	background: #7e8d85;
-	flex-direction: column;
-	width: auto;
-	height: 60px;
-	display: flex;
-	align-items: center;
-	justify-content: space-around;
-	padding: 10px;
-	border-radius: 6px;
-	margin: 10px;
+box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+background: #b3bfb8 ;
+border: 5px solid #684943;
+transition: 0.3s;
+width: 40%;
+padding: 10px 20px 10px 20px;
+margin: 20px;
+:hover {
+	box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+}
 `;
 
 const TitleInput = styled.input`
@@ -77,6 +77,19 @@ border-radius: 4px;
 background-color: #f8f8f8;
 font-size: 16px;
 resize: none;
+`;
+
+const Body = styled.textarea`
+	font-family: "Lato", sans-serif;
+	font-size: 1rem;
+	width: 100%;
+	height: 150px;
+	padding: 18px 20px;
+	box-sizing: border-box;
+	border: 2px solid #ccc;
+	border-radius: 4px;
+	background-color: #f8f8f8;
+	resize: none;
 `;
 
 const Button2 = styled.button`
@@ -168,12 +181,12 @@ function PostCard(props) {
 						onChange={handleChange}
 						value={updatedLib.devlibtitle}
 					/>
-					<TitleInput
-						type="text"
-						name="paragraph"
-						onChange={handleChange}
-						value={updatedLib.paragraph}
-					/>
+				<Body
+					type="text"
+					name="paragraph"
+					onChange={handleChange}
+					value={updatedLib.paragraph}
+				/>
 				</FormBackground>
 				<Button2 type="submit">Update Dev-Lib</Button2>
 			</Form>
