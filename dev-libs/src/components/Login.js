@@ -1,10 +1,8 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { Button, Form, FormGroup, Label, Input } from 'reactstrap';
-import {Link} from "react-router-dom"
 import { axiosWithAuth } from "../utils/axiosWithAuth";
 import Footer from "./Footer";
 import styled from "styled-components";
-import { tsPropertySignature } from '@babel/types';
 
 const Error = styled.p`
 color: red
@@ -41,13 +39,12 @@ const handleSubmit = user => {
     }
   })
   .then(res => {
-    console.log(res)
     localStorage.setItem('token', res.data.access_token);
     localStorage.setItem('username', user.username);
     props.history.push('/home')
     window.location.reload();
   })
-  .catch(err => (setError(true),console.log(err.response)));
+  .catch(err => (setError(true)));
 };
 
     return (

@@ -13,18 +13,18 @@ import {
 
 const initialState = {
 	myLibs: [        
-	{
-		devlibid: Math.random().toString(36).substr(2, 9),
-		devlibtitle: "Ted Talks",
-		answerstrings: ["silly", "billy", "ahhh", "4"],
-		story: function() { return `I once ${this.answerstrings[0]}, and then i ${this.answerstrings[1]}, so that I could ${this.answerstrings[2]}, and then ${this.answerstrings[3]}!`}
-	},
-	{
-		devlibid: Math.random().toString(36).substr(2, 9),
-		devlibtitle: "The Future",
-		answerstrings: ["sad", "Charles", "running", "19"],
-		story: function() { return `There ${this.answerstrings[0]}, and then i ${this.answerstrings[1]}, so that I could ${this.answerstrings[2]}, and then ${this.answerstrings[3]}!`}
-	}
+	// {
+	// 	devlibid: Math.random().toString(36).substr(2, 9),
+	// 	devlibtitle: "Ted Talks",
+	// 	answerstrings: ["silly", "billy", "ahhh", "4"],
+	// 	story: function() { return `I once ${this.answerstrings[0]}, and then i ${this.answerstrings[1]}, so that I could ${this.answerstrings[2]}, and then ${this.answerstrings[3]}!`}
+	// },
+	// {
+	// 	devlibid: Math.random().toString(36).substr(2, 9),
+	// 	devlibtitle: "The Future",
+	// 	answerstrings: ["sad", "Charles", "running", "19"],
+	// 	story: function() { return `There ${this.answerstrings[0]}, and then i ${this.answerstrings[1]}, so that I could ${this.answerstrings[2]}, and then ${this.answerstrings[3]}!`}
+	// }
 ],
 	devlibs: [
         {

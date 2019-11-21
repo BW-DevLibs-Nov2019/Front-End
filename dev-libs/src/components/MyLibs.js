@@ -14,7 +14,7 @@ const Main = styled.div`
 
 const Holder = styled.div``;
 
-const TopPosts = props => {
+const MyLibs = props => {
 
 	const dispatch = useDispatch();
 	useEffect(() => {
@@ -26,7 +26,6 @@ const TopPosts = props => {
 					}
 				})
 				.then(res => {
-					console.log(res.data)
 					dispatch({ type: RETRIEVE_POSTS, payload: res.data });
 				})
 				.catch(error => {
@@ -40,9 +39,7 @@ const TopPosts = props => {
 		<Holder>
 			<Main>
                 {props.myPosts.myLibs.map(lib => (
-                    <div>
-					<PostCard devlibid={lib.devlibid} devlibtitle={lib.devlibtitle} paragraph={lib.paragraph} answerstrings={lib.answerstrings} />	
-                    </div>
+					<PostCard key={lib.devlibid} devlibid={lib.devlibid} devlibtitle={lib.devlibtitle} paragraph={lib.paragraph} answerstrings={lib.answerstrings} />	
                 ))}
 			</Main>
 		</Holder>
@@ -58,4 +55,4 @@ const mapStateToProps = state => {
 export default connect(
 	mapStateToProps,
 	{},
-)(TopPosts);
+)(MyLibs);

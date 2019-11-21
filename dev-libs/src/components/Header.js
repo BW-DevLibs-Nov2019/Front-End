@@ -44,7 +44,7 @@ display: inline-block;
 }
 `
 
-const HeaderButton = styled.button `
+const Logout = styled.p `
 color: #353238;
 padding: 14px 25px;
 margin-left: 30px;
@@ -70,7 +70,7 @@ if (localStorage.token) {
           <TitleLink to ="/home">Dev <Image src={Logo} alt="Logo"></Image> Libs</TitleLink>
           <Links>
           <HeaderLink to="/home">Home</HeaderLink>
-          <HeaderLink onClick={logout}>Log Out</HeaderLink>
+          <Logout onClick={logout}>Log Out</Logout>
           </Links>
       </Title>
       <Bar />

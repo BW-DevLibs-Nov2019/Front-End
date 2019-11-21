@@ -114,14 +114,6 @@ function PostCard(props) {
 		  );
 	  },[tl]);
 
-	  var teststuff = {
-		  answerstrings: {
-			  noun: "aaa",
-			  noun2: "ccc",
-			  verb: "bbb",
-		  }
-	  }
-
 	const deletePost = id => {
 		props.deletePost(id);
 	};
@@ -136,7 +128,7 @@ function PostCard(props) {
         e.preventDefault();
         var result = { 	
             devlibid: props.devlibid, 			
-			devlibtitle: props.devlibtitle,
+			devlibtitle: updatedLib.devlibtitle,
 			answerstrings: Object.values(updatedLib),
 			paragraph: updatedLib.paragraph
 		} 
@@ -170,6 +162,12 @@ function PostCard(props) {
 		return (
 			<Form onSubmit={handleSubmit}>
 				<FormBackground>
+				<TitleInput
+						type="text"
+						name="devlibtitle"
+						onChange={handleChange}
+						value={updatedLib.devlibtitle}
+					/>
 					<TitleInput
 						type="text"
 						name="paragraph"

@@ -102,8 +102,8 @@ const PostForm = props => {
 
 	return (
 		<Form onSubmit={handleSubmit}>
-            {props.devlibs[number].answerstrings.map(lib => (
-			<FormBackground>
+            {props.devlibs[number].answerstrings.map((lib, index) => (
+			<FormBackground key={index}>
 			<PostTitle htmlFor="postName">{lib}:</PostTitle>
 			<TitleInput
 				type="text"
