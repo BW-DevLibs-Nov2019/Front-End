@@ -8,6 +8,7 @@ import {
 	UPDATE_FAILED,
 	DELETE_START,
 	DELETE_SUCCESS,
+	DELETE_FAILED
 } from "../actions";
 
 const initialState = {
@@ -53,6 +54,7 @@ const initialState = {
 };
 
 export const reducer = (state = initialState, action) => {
+	console.log(action.payload)
 	switch (action.type) {
 		default:
 			return state;
@@ -93,7 +95,9 @@ export const reducer = (state = initialState, action) => {
 		case UPDATE_FAILED:
 			return {
 				...state,
-				myLibs: [...state.myLibs, action.payload],
+				myLibs: state.myLibs.map(lib =>
+					lib.id === action.payload.id ? action.payload : lib,
+				),
 				error: action.payload,
 				updatingPost: false
 			};
@@ -103,10 +107,18 @@ export const reducer = (state = initialState, action) => {
 				deletingPost: true,
 			};
 		case DELETE_SUCCESS:
+			console.log("delete!")
 			return {
 				...state,
 				deletingPost: false,
-				posts: state.posts.filter(post => post.id !== action.payload),
+				myLibs: state.myLibs.filter(lib => lib.id !== action.payload),
+			};
+		case DELETE_FAILED:
+			console.log("delete!")
+			return {
+				...state,
+				deletingPost: false,
+				myLibs: state.myLibs.filter(lib => lib.id !== action.payload),
 			};
 	}
 };

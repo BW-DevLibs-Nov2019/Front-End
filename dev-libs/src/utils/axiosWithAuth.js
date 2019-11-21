@@ -7,7 +7,7 @@ export const axiosWithAuth = () => {
 		headers: {
 			Authorization: token,
 		},
-		baseURL: "https://dev-libs-bw.herokuapp.com",
+		baseURL: "https://cors-anywhere.herokuapp.com/https://dev-libs-bw.herokuapp.com",
 	});
 };
 
