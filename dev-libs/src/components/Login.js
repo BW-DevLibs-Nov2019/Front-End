@@ -86,7 +86,3 @@ const handleSubmit = user => {
 }
 
 export default Login;
-
-
-//ed3a6cbf-e903-4570-b8b7-36d9e3935634
-
