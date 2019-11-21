@@ -52,6 +52,7 @@ text-align: center;
 text-decoration: none;
 display: inline-block;
 :hover{
+  cursor: pointer;
 }
 `
 
