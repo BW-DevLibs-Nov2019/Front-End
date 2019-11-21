@@ -35,12 +35,6 @@ const initialState = {
 		},
         {
             id: "2",
-            title: "BaseBall",
-			answerstrings: ["verb", "verb ending in ing", "noun", "occupation", "number", "location", "verb 2", "adjective", "noun (plural)", "noun2"],
-			story: function() { return `${this.answerstrings[0]} ball is a very exciting sport. Whether you are ${this.answerstrings[1]} the ball with a ${this.answerstrings[2]}, or you are the ${this.answerstrings[3]} and striking out ${this.answerstrings[4]} batters in a row, youll be having fun. You can also be the catcher, standing at ${this.answerstrings[5]} plate, ready to ${this.answerstrings[6]} the next person as he tries to make it ${this.answerstrings[5]}. But the best part of it is when someone hits a ${this.answerstrings[7]} slam when all the ${this.answerstrings[8]} are loaded during the last ${this.answerstrings[9]} to win the game.`}
-        },
-        {
-            id: "3",
             title: "Star Wars",
 			answerstrings: ["name", "adjective", "verb", "verb ending in 'ing", "verb ending in 'ing 2", "scary noun"],
 			story: function() { return `Did you ever hear the tragedy of Darth ${this.answerstrings[0]} the ${this.answerstrings[1]}? Did you ever hear the tragedy of Darth ${this.answerstrings[0]} the ${this.answerstrings[1]}?Did you ever hear the tragedy of Darth ${this.answerstrings[0]} the ${this.answerstrings[1]}?Did you ever hear the tragedy of Darth ${this.answerstrings[0]} the ${this.answerstrings[1]}?Did you ever hear the tragedy of Darth ${this.answerstrings[0]} the ${this.answerstrings[5]}?`}
