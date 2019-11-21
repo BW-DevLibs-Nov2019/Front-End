@@ -96,8 +96,6 @@ const Button2 = styled.button`
 `;
 
 function PostCard(props) {
-
-    console.log(props)
 	let cardRef = useRef(null);
 	const [animation2, setAnimation2] = useState(null);
 	const [tl] = useState(new TimelineMax({paused: true}));
@@ -127,7 +125,7 @@ function PostCard(props) {
 	const handleSubmit = e => {
         e.preventDefault();
         var result = { 	
-            id: Math.random().toString(36).substr(2, 9), 			
+            id: props.id, 			
 			title: props.title,
 			blanks: Object.values(updatedLib),
             story: props.story} 
