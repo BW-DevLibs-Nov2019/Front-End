@@ -114,6 +114,16 @@ function PostCard(props) {
 		  );
 	  },[tl]);
 
+	  var teststuff = {
+		  answerstrings: {
+			  noun: "aaa",
+			  noun2: "ccc",
+			  verb: "bbb",
+		  }
+	  }
+
+	  console.log("test", teststuff.answerstrings.noun)
+
 	const deletePost = id => {
 		props.deletePost(id);
 	};
@@ -138,6 +148,18 @@ function PostCard(props) {
 	};
 
 	const test = props => {	
+		setAnimation2(
+			tl
+			.to(cardRef, 0.4, {
+			  transformOrigin: "center center",
+			  ease: Back.easeIn.config( 1.4),
+			  scale: 0.1,
+			},'s+=0.25')
+			.to(cardRef, 0.4, {
+			  opacity: 0,
+			  display: "none"
+			},'s+=.75'),
+			);
 	animation2.play()	
 	setTimeout(function() { deletePost(props.id) }, 2000);
 	}

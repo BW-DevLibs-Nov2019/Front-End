@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Button, Form, FormGroup, Label, Input } from 'reactstrap';
 import {Link} from "react-router-dom"
 import { axiosWithAuth } from "../utils/axiosWithAuth";
+import axios from "axios"
 import Footer from "./Footer";
 import styled from "styled-components";
 
@@ -17,12 +18,12 @@ right:0;
 `;
 
 
-const Register = () => {
+const Register = (props) => {
 
 const [users, setUsers] = useState({
   username: "",
+  password: "",
   primaryemail: "",
-  password: ""
 });
 const [error, setError] = useState(false);
 
@@ -36,7 +37,10 @@ const submitUser = user => {
   console.log(user);
   axiosWithAuth()
     .post('/createnewuser', users)
-    .then(res => console.log(res))
+    .then(res => {
+      console.log(res.data);
+      props.history.push("/login")
+    })
     .catch(err => (setError(true), console.log(err)))
 };
 
