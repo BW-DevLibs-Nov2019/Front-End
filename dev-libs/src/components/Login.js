@@ -4,6 +4,7 @@ import {Link} from "react-router-dom"
 import { axiosWithAuth } from "../utils/axiosWithAuth";
 import Footer from "./Footer";
 import styled from "styled-components";
+import { tsPropertySignature } from '@babel/types';
 
 const Error = styled.p`
 color: red
@@ -17,11 +18,10 @@ right:0;
 `;
 
 
-const Login = () => {
+const Login = (props) => {
 
 const [users, setUsers] = useState({
   username: "",
-  primaryemail: "",
   password: ""
 });
 const [error, setError] = useState(false);
@@ -32,12 +32,21 @@ const handleChange = event => {
   setError(false)
 }
 
-const submitUser = user => {
+const handleSubmit = user => {
   console.log(user);
   axiosWithAuth()
-    .post('/createnewuser', users)
-    .then(res => console.log(res))
-    .catch(err => (setError(true), console.log(err)))
+  .post('/login', `grant_type=password&username=${user.username}&password=${user.password}`, {
+    headers: {
+      Authorization: `Basic bGFtYmRhLWNsaWVudDpsYW1iZGEtc2VjcmV0`,
+      'Content-Type' : 'application/x-www-form-urlencoded'
+    }
+  })
+  .then(res => {
+    console.log(res)
+    localStorage.setItem('token', res.data.access_token);
+    props.history.push('/home')
+  })
+  .catch(err => console.log(err.response));
 };
 
     return (
@@ -50,16 +59,16 @@ const submitUser = user => {
       <FormGroup>
         <Label for="userName" hidden>
         <div className="inputName">Username</div></Label>
-        <Input type="username" name="username" id="username" placeholder="Username" />
+        <Input type="username" name="username" id="username" placeholder="Username"  onChange={handleChange} value={users.username} />
       </FormGroup>
       
       <FormGroup>
         <Label for="examplePassword" hidden>
         <div className="inputName">Password</div></Label>
-        <Input type="password" name="password" id="examplePassword" placeholder="Password" />
+        <Input type="password" name="password" id="examplePassword" placeholder="Password"  onChange={handleChange} value={users.password} />
       </FormGroup>
      
-      <Button onClick="Submit">Submit</Button>
+      <Button onClick= {() => handleSubmit(users)}>Submit</Button>
       
      
       </div>
@@ -73,3 +82,7 @@ const submitUser = user => {
 }
 
 export default Login;
+
+
+//ed3a6cbf-e903-4570-b8b7-36d9e3935634
+

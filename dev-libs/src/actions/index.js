@@ -43,7 +43,6 @@ export const updatePost = (id, changes) => dispatch => {
 		});
 };
 
-// deleting action
 export const DELETE_START = "DELETE_START";
 export const DELETE_SUCCESS = "DELETE_SUCCESS";
 export const DELETE_FAILED = "DELETE_FAILED";

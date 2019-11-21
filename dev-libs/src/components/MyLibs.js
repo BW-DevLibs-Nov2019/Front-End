@@ -14,8 +14,6 @@ const Holder = styled.div``;
 
 const TopPosts = props => {
 
-console.log(props.myPosts.myLibs)
-
 	return (
 		<Holder>
 			<Main>
