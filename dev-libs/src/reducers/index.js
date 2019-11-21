@@ -32,7 +32,7 @@ const initialState = {
             title: "Ted Talks",
 			answerstrings: ["verb", "noun", "adjective", "number"],
 			story: function() { return `I once ${this.answerstrings[0]}, and then i ${this.answerstrings[1]}, so that I could ${this.answerstrings[2]}, and then ${this.answerstrings[3]}!`}
-        },
+		},
         {
             id: "2",
             title: "BaseBall",
@@ -43,9 +43,8 @@ const initialState = {
             id: "3",
             title: "Star Wars",
 			answerstrings: ["name", "adjective", "verb", "verb ending in 'ing", "verb ending in 'ing 2", "scary noun"],
-			story: function() { return `Did you ever hear the tragedy of Darth ${this.answerstrings[0]} the ${this.answerstrings[1]}? I thought not. It's not a story the Jedi would tell you. It's a Sith legend. Darth 
-			${this.answerstrings[0]} was a Dark Lord of the Sith, so powerful and so wise he could ${this.answerstrings[2]} to create life... He had such a knowledge of the dark side that he could even keep the ones he cared about from ${this.answerstrings[3]}. The dark side of the Force is a pathway to many abilities some consider to be unnatural. He became so powerful... the only thing he was afraid of was ${this.answerstrings[4]}, which eventually, of course, he did. Unfortunately, he taught his apprentice everything he knew, then his apprentice killed him in his sleep. Ironic, he could save others from ${this.answerstrings[5]}, but not himself.`}
-        }
+			story: function() { return `Did you ever hear the tragedy of Darth ${this.answerstrings[0]} the ${this.answerstrings[1]}? Did you ever hear the tragedy of Darth ${this.answerstrings[0]} the ${this.answerstrings[1]}?Did you ever hear the tragedy of Darth ${this.answerstrings[0]} the ${this.answerstrings[1]}?Did you ever hear the tragedy of Darth ${this.answerstrings[0]} the ${this.answerstrings[1]}?Did you ever hear the tragedy of Darth ${this.answerstrings[0]} the ${this.answerstrings[5]}?`}
+		},
     ],
 	addingPost: false,
 	deletingPost: false,
@@ -54,7 +53,6 @@ const initialState = {
 };
 
 export const reducer = (state = initialState, action) => {
-	console.log(action.payload)
 	switch (action.type) {
 		default:
 			return state;
@@ -70,6 +68,7 @@ export const reducer = (state = initialState, action) => {
 			};
 		case POST_SUCCESS:
 			console.log("post worked!")
+			console.log(action.payload)
 			return {
 				...state,
 				myLibs: [...state.myLibs, action.payload],
@@ -77,6 +76,7 @@ export const reducer = (state = initialState, action) => {
 			};
 		case POST_FAILED:
 			console.log("post failed")
+			console.log(action.payload)
 			return {
 				...state,
 				error: action.payload,
@@ -89,10 +89,11 @@ export const reducer = (state = initialState, action) => {
 			};
 		case UPDATE_SUCCESS:
 			console.log("update worked!")
+			console.log(action.payload)
 			return {
 				...state,
 				myLibs: state.myLibs.map(lib =>
-					lib.id === action.payload.id ? action.payload : lib,
+					lib.devlibid === action.payload.devlibid ? action.payload : lib,
 				),
 				error: action.payload,
 				updatingPost: false

@@ -126,7 +126,10 @@ function PostCard(props) {
 		props.deletePost(id);
 	};
 
-	const [updatedLib, setUpdatedLib] = React.useState({});
+	const [updatedLib, setUpdatedLib] = React.useState({
+		devlibtitle: props.devlibtitle,
+		paragraph: props.paragraph,
+	});
 
 	const [isEditing, setIsEditing] = useState(false);
 	const handleSubmit = e => {
@@ -135,8 +138,10 @@ function PostCard(props) {
             devlibid: props.devlibid, 			
 			devlibtitle: props.devlibtitle,
 			answerstrings: Object.values(updatedLib),
-            story: props.story} 
-		props.updatePost(props.id, result);
+			paragraph: updatedLib.paragraph
+		} 
+			
+		props.updatePost(props.devlibid, result);
 		setIsEditing(false);
 	};
 
@@ -164,17 +169,14 @@ function PostCard(props) {
 	if (isEditing) {
 		return (
 			<Form onSubmit={handleSubmit}>
-                {props.blanks.map(lib => (
 				<FormBackground>
 					<TitleInput
 						type="text"
-						name={lib}
+						name="paragraph"
 						onChange={handleChange}
-						placeholder={`${lib}`}
-						value={updatedLib.lib}
+						value={updatedLib.paragraph}
 					/>
 				</FormBackground>
-                ))}
 				<Button2 type="submit">Update Dev-Lib</Button2>
 			</Form>
 		);

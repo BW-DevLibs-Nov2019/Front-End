@@ -81,15 +81,17 @@ const PostForm = props => {
 			story: props.devlibs[number].story
 		}
 
+
+		console.log(result)
 		var finalparagraph = result.story();
-		console.log(finalparagraph)
 
 		var result2 = {		
 			devlibtitle: props.devlibs[number].title,
 			answerstrings: Object.values(newLib),
-			paragraph: finalparagraph
+			paragraph: finalparagraph,
+			story: "story"
 		}
-		
+		console.log(result2)
 		props.addDevLib(result2);
 		redirect();
 	};

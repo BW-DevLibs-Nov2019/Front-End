@@ -38,7 +38,11 @@ export const UPDATE_FAILED = "UPDATE_FAILED";
 export const updatePost = (id, changes) => dispatch => {
 	dispatch({ type: UPDATING_START });
 	axiosWithAuth()
-		.put(`/updatePost/${id}`, changes)
+		.put(`/devlibs/devlib/${id}`, changes, {
+			headers: {
+				Authorization: `Bearer ${localStorage.getItem('token')}`
+			}
+		})
 		.then(res => {
 			dispatch({ type: UPDATE_SUCCESS, payload: changes });
 		})
