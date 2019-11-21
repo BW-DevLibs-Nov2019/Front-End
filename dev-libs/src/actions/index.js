@@ -17,7 +17,11 @@ export const POST_FAILED = "POST_FAILED";
 export const addDevLib = post => dispatch => {
 	dispatch({ type: POST_START });
 	axiosWithAuth()
-		.post("/createPost", post)
+		.post("/devlibs/create", post, {
+			headers: {
+				Authorization: `Bearer ${localStorage.getItem('token')}`
+			}
+		})
 		.then(res => {
 			dispatch({ type: POST_SUCCESS, payload: post });
 		})
@@ -50,7 +54,11 @@ export const DELETE_FAILED = "DELETE_FAILED";
 export const deletePost = id => dispatch => {
 	dispatch({ type: DELETE_START });
 	axiosWithAuth()
-		.delete(`/deletePost/${id}`)
+		.delete(`/devlibs/devlib/${id}`, {
+			headers: {
+				Authorization: `Bearer ${localStorage.getItem('token')}`
+			}
+		})
 		.then(res => {
 			dispatch({ type: DELETE_SUCCESS, payload: id });
 		})

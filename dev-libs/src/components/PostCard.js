@@ -122,8 +122,6 @@ function PostCard(props) {
 		  }
 	  }
 
-	  console.log("test", teststuff.answerstrings.noun)
-
 	const deletePost = id => {
 		props.deletePost(id);
 	};
@@ -131,13 +129,12 @@ function PostCard(props) {
 	const [updatedLib, setUpdatedLib] = React.useState({});
 
 	const [isEditing, setIsEditing] = useState(false);
-
 	const handleSubmit = e => {
         e.preventDefault();
         var result = { 	
-            id: props.id, 			
-			title: props.title,
-			blanks: Object.values(updatedLib),
+            devlibid: props.devlibid, 			
+			devlibtitle: props.devlibtitle,
+			answerstrings: Object.values(updatedLib),
             story: props.story} 
 		props.updatePost(props.id, result);
 		setIsEditing(false);
@@ -161,7 +158,7 @@ function PostCard(props) {
 			},'s+=.75'),
 			);
 	animation2.play()	
-	setTimeout(function() { deletePost(props.id) }, 2000);
+	setTimeout(function() { deletePost(props.devlibid) }, 2000);
 	}
 
 	if (isEditing) {
@@ -184,11 +181,11 @@ function PostCard(props) {
 	} else {
 		return (
 			<Card ref={element => {cardRef = element;}}>
-				<Title>{props.title}</Title>
-				<Paragraph>{props.story()}</Paragraph>
+				<Title>{props.devlibtitle}</Title>
+				<Paragraph>{props.paragraph}</Paragraph>
 				<Button onClick={() =>test(props)}>Delete</Button>
 				<Button onClick={() => setIsEditing(true)}>Edit</Button>
-                <Button onClick={() => window.location.href = `https://twitter.com/intent/tweet?text=${props.story()}`}>Tweet</Button>
+                <Button onClick={() => window.location.href = `https://twitter.com/intent/tweet?text=${props.paragraph}`}>Tweet</Button>
 			</Card>
 		);
 	}
