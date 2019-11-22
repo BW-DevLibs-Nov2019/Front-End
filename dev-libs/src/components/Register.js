@@ -16,6 +16,12 @@ bottom:0;
 right:0;
 `;
 
+const Center = styled.div`
+display: flex;
+text-align: center;
+justify-content: center;
+`
+
 
 const Register = (props) => {
 
@@ -43,6 +49,7 @@ const submitUser = user => {
 
     return (
         <div className="Register">
+          <Center>
       <Form inline>
           
           <div className="Forms">
@@ -75,6 +82,7 @@ const submitUser = user => {
       </Link>
         </div>
       </Form>
+      </Center>
       <Footer2>
       <Footer />
       </Footer2>
