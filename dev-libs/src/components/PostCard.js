@@ -109,6 +109,7 @@ const Button2 = styled.button`
 `;
 
 function PostCard(props) {
+
 	let cardRef = useRef(null);
 	const [animation2, setAnimation2] = useState(null);
 	const [tl] = useState(new TimelineMax({paused: true}));
@@ -146,7 +147,7 @@ function PostCard(props) {
 			paragraph: updatedLib.paragraph
 		} 
 			
-		props.updatePost(props.devlibid, result);
+		props.updatePost(result.devlibid, result);
 		setIsEditing(false);
 	};
 
