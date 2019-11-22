@@ -15,6 +15,12 @@ bottom:0;
 right:0;
 `;
 
+const Center = styled.div`
+display: flex;
+text-align: center;
+justify-content: center;
+`
+
 
 const Login = (props) => {
 
@@ -49,6 +55,7 @@ const handleSubmit = user => {
 
     return (
         <div>
+          <Center>
  <Form inline>
  <div className="header">
                 <h1> Log In </h1>
@@ -77,7 +84,7 @@ const handleSubmit = user => {
      
       </div>
     </Form>
-    
+    </Center>
     <Footer2>
       <Footer />
       </Footer2>

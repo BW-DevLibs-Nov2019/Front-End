@@ -29,15 +29,21 @@ const initialState = {
 	devlibs: [
         {
             id: "1",
-            title: "Ted Talks",
-			answerstrings: ["verb", "noun", "adjective", "number"],
-			story: function() { return `I once ${this.answerstrings[0]}, and then i ${this.answerstrings[1]}, so that I could ${this.answerstrings[2]}, and then ${this.answerstrings[3]}!`}
+            title: "Excuses",
+			answerstrings: ["name", "body part", "type of fluid", "a substance"],
+			story: function() { return `${this.answerstrings[0]} is sick with the ${this.answerstrings[1]} flu. Drink more ${this.answerstrings[2]} and take ${this.answerstrings[3]} as needed.`}
 		},
         {
             id: "2",
             title: "Star Wars",
-			answerstrings: ["name", "adjective", "verb", "verb ending in 'ing", "verb ending in 'ing 2", "scary noun"],
-			story: function() { return `Did you ever hear the tragedy of Darth ${this.answerstrings[0]} the ${this.answerstrings[1]}? Did you ever hear the tragedy of Darth ${this.answerstrings[0]} the ${this.answerstrings[1]}?Did you ever hear the tragedy of Darth ${this.answerstrings[0]} the ${this.answerstrings[1]}?Did you ever hear the tragedy of Darth ${this.answerstrings[0]} the ${this.answerstrings[1]}?Did you ever hear the tragedy of Darth ${this.answerstrings[0]} the ${this.answerstrings[5]}?`}
+			answerstrings: ["noun", "person", "adjective", "orginization"],
+			story: function() { return `Did you ever hear the ${this.answerstrings[0]} of Darth ${this.answerstrings[1]} the ${this.answerstrings[2]}? I thought not. It's not a story the ${this.answerstrings[3]} would tell you. It's a Sith legend`}
+		},
+		{
+            id: "3",
+            title: "Christmas",
+			answerstrings: ["verb ending in -ing", "noun"],
+			story: function() { return `${this.answerstrings[0]} through the snow, in a one-${this.answerstrings[1]} open sleigh...`}
 		},
     ],
 	addingPost: false,
